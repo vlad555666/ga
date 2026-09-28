@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Классная оборона</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&family=PT+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="game-shell">
+      <section class="topbar">
+        <a class="brand" href="#" aria-label="Классная оборона"
+          ><span class="brand-mark">✦</span
+          ><span>КЛАССНАЯ<br /><b>ОБОРОНА</b></span></a
+        >
+        <div class="stats" aria-label="Статистика игры">
+          <div class="stat coins">
+            <span>✦</span>
+            <div><small>КАНЦЕЛЯРИЯ</small><strong id="money">80</strong></div>
+          </div>
+          <div class="stat hearts">
+            <span>♥</span>
+            <div><small>ЖИЗНИ</small><strong id="lives">20</strong></div>
+          </div>
+          <div class="stat wave">
+            <span>▥</span>
+            <div><small>ВОЛНА</small><strong id="wave">1 / 5</strong></div>
+          </div>
+        </div>
+        <button class="pause" id="pauseBtn" aria-label="Пауза">Ⅱ</button>
+      </section>
+
+      <section class="play-area">
+        <div class="notebook">
+          <div class="paper-holes" aria-hidden="true"></div>
+          <div class="margin-line"></div>
+          <canvas
+            id="gameCanvas"
+            width="1060"
+            height="600"
+            aria-label="Игровое поле. Кликните по клетке, чтобы поставить выбранную башню."
+          ></canvas>
+          <div class="wave-banner" id="waveBanner">
+            <span>ВОЛНА 1</span><b>ПОДГОТОВКА К УРОКУ</b>
+          </div>
+          <div class="objective">
+            <b>Задание:</b> Не дай учебникам добраться до звонка!
+          </div>
+          <button id="startWave" class="start-wave">
+            <span>▶</span> НАЧАТЬ ВОЛНУ
+          </button>
+        </div>
+        <aside class="sidebar">
+          <div class="school-card">
+            <div class="card-heading">
+              <span class="spark">✦</span>
+              <div>
+                <small>АРСЕНАЛ</small>
+                <h2>Школьные<br />принадлежности</h2>
+              </div>
+            </div>
+            <div class="tower-list">
+              <button class="tower active" data-tower="pen">
+                <span class="item-art pen-art">●</span
+                ><span
+                  ><b>Шариковая ручка</b><small>Быстрая и точная</small></span
+                ><em>35 ✦</em>
+              </button>
+              <button class="tower" data-tower="pencil">
+                <span class="item-art pencil-art">▲</span
+                ><span><b>Карандаш</b><small>Дальний удар</small></span
+                ><em>50 ✦</em>
+              </button>
+              <button class="tower" data-tower="eraser">
+                <span class="item-art eraser-art">▰</span
+                ><span><b>Ластик</b><small>Замедляет врагов</small></span
+                ><em>40 ✦</em>
+              </button>
+            </div>
+          </div>
+          <div class="tip-card">
+            <span>☝</span>
+            <p>
+              <b>Подсказка учителя:</b><br />Размещай предметы на клетках вокруг
+              дорожки.
+            </p>
+          </div>
+          <div class="upgrade-card" id="upgradeCard" hidden>
+            <small>ВЫБРАННАЯ БАШНЯ</small>
+            <h3 id="upgradeTitle">Башня</h3>
+            <div class="level-row">
+              <span>УРОВЕНЬ</span><b id="towerLevel">1 / 5</b>
+            </div>
+            <button id="upgradeBtn" class="upgrade-btn">
+              ↑ УЛУЧШИТЬ <em id="upgradeCost">30 ✦</em></button
+            ><button id="abilityBtn" class="ability-btn" disabled>
+              СПОСОБНОСТЬ ОТКРОЕТСЯ НА 5 УР.
+            </button>
+            <p id="upgradeHint">
+              Кликните по башне на поле, чтобы улучшить её.
+            </p>
+          </div>
+          <div class="legend">
+            <span><i class="pen-dot"></i> ручка</span
+            ><span><i class="pencil-dot"></i> карандаш</span
+            ><span><i class="eraser-dot"></i> ластик</span>
+          </div>
+        </aside>
+      </section>
+      <footer>
+        <span>УРОК ОБОРОНЫ · КАБИНЕТ 305</span
+        ><span>СОЗДАНО С <b>♥</b> ДЛЯ ОТЛИЧНИКОВ</span>
+      </footer>
+    </main>
+    <div class="toast" id="toast" role="status"></div>
+    <script src="game.js"></script>
+  </body>
+</html>
